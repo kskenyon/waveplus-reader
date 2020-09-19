@@ -72,6 +72,7 @@ waveplus.connect()
 jsonPackage = dict()
 sensors = waveplus.read()
 client = mqtt.Client()
+client.username_pw_set(username="username",password="password")  #Replace with broker username and password
 client.connect(Broker)
 for i in range(sensors.NUMBER_OF_SENSORS):
     topic = "waveplus/{0}/{1}".format(SerialNumber, sensors.header[i].replace(' ','_'))
